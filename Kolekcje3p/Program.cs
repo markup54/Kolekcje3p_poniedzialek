@@ -37,3 +37,32 @@ int[] wczytajLiczbyDoTablicy(int ileLiczb)
 }
 int[] tablicaWczytana = wczytajLiczbyDoTablicy(6);
 wypiszTablice(tablicaWczytana);
+
+List<int> wylosowanieLiczbBezPowtórzenDoListy(int ileLiczba)
+{
+    List<int> listaLiczbLosowych = new List<int>();
+    //w listach mozna zmieniac rozmiar
+    //w trakcie działania programu
+    Random random = new Random();
+    for (int i = 0; i < ileLiczba; i++)
+    {
+        int liczba = random.Next(1,10);
+        while (listaLiczbLosowych.Contains(liczba))
+        {
+            liczba = random.Next(1, 10);
+        }
+        listaLiczbLosowych.Add(liczba);
+    }
+    return listaLiczbLosowych;
+}
+void wypiszListe(List<int> listaLiczb)
+{
+    Console.WriteLine();
+    Console.WriteLine("Lista:");
+    for (int i = 0;i < listaLiczb.Count; i++)
+    {
+        Console.Write(listaLiczb[i] +", ");
+    }
+}
+List<int> wylosowane = wylosowanieLiczbBezPowtórzenDoListy(9);
+wypiszListe(wylosowane);
