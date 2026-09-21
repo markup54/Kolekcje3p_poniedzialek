@@ -66,3 +66,34 @@ void wypiszListe(List<int> listaLiczb)
 }
 List<int> wylosowane = wylosowanieLiczbBezPowtórzenDoListy(9);
 wypiszListe(wylosowane);
+
+HashSet<int> wylosujLiczbyBezPowtorzenDoZbioru(int ileLiczb)
+{
+    HashSet<int> zbiorLosowych = new HashSet<int>();
+    Random random = new Random();
+    while(zbiorLosowych.Count<ileLiczb)
+    {
+        zbiorLosowych.Add(random.Next(1, 10));
+    }
+    return zbiorLosowych;
+}
+
+void wypiszZbior(HashSet<int> zbiorLiczb)
+{
+    Console.WriteLine();
+    Console.WriteLine("Zbiór:");/*
+    for (int i = 0; i < zbiorLiczb.Count; i++)
+    {
+        Console.WriteLine(zbiorLiczb[i]);
+        //nie można indeksować błąd
+    }*/
+    Console.WriteLine();
+    Console.WriteLine("ZBiór: ");
+    foreach (int element in zbiorLiczb)
+    {
+        Console.WriteLine(element);
+    }
+}
+
+HashSet<int> wylosowanyZbior = wylosujLiczbyBezPowtorzenDoZbioru(7);
+wypiszZbior(wylosowanyZbior);
